@@ -28,6 +28,24 @@ export async function fetchRevenue() {
   }
 }
 
+ 
+
+export async function fetchLatestUsers(limit: number = 5) {
+  try {
+    const data = await sql<CustomerField>`
+      SELECT id, name, email, image_url
+      FROM customers
+      ORDER BY created_at DESC
+      LIMIT ${limit}`;
+
+    return data.rows;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch the latest users.');
+  }
+}
+
+
 export async function fetchLatestInvoices() {
   try {
     const data = await sql<LatestInvoiceRaw>`
