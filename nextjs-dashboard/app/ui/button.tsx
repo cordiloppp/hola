@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { PencilIcon, PlusIcon, TrashIcon } from '@heroicons/react/24/outline';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
